@@ -1,2 +1,2 @@
-# coap-service
-register, observe, store
+# Observer
+Observing Resources in the Constrained Application Protocol
