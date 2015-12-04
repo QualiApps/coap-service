@@ -34,3 +34,24 @@ ES_PORT - elasticsearch port (default: 9200)
 
 ES_INDEX - index name (default: index)
 ```
+_________________________________________________________________
+
+####How Observer works
+
+The config server listens incoming HTTP traffic and allows to add or remove CoAP devices (clients).
+
+It provides the next entry points:
+
+```
+- /clients (retrieves the list of all devices)
+
+- /clients/add (adds a new device and invokes Register event to register observable resources), this is a POST request whith next data format
+    {"host": "IP address", "port": "PORT"}
+    
+- /clients/delete/:id (removes the device from the config and then invoke Deregister event)
+    where id - the unique identifier of device
+```
+
+The observer listens UDP traffic and processes Json data only then sends the processed data to the ElasticSearch.
+
+If incoming JSON data include the "type" field that its value will be used as a type for ElasticSearch. In other case will be used default type - "type".
