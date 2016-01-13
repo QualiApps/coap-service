@@ -11,7 +11,7 @@ Observing Resources in the Constrained Application Protocol
 
 ###Start Observer
 
-`docker run -d -p 4000:4000 -p 56083:56083 --name observer qapps/coap-service [options]`
+`docker run -d -p 4000:4000 -p 56083:56083/udp --name observer qapps/coap-service [options]`
 
 
 ####Specify these options, if you want to change some params
