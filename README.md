@@ -47,6 +47,8 @@ It provides the next entry points:
 
 - /clients/add (adds a new device and invokes Register event to register observable resources), this is a POST request whith next data format
     {"host": "IP address", "port": "PORT"}
+    example: 
+	$ curl -XPOST localhost:4000/clients/add -d "{\"host\": \"10.42.0.3\", \"port\": \"5683\"}"
     
 - /clients/delete/:id (removes the device from the config and then invoke Deregister event)
     where id - the unique identifier of device
